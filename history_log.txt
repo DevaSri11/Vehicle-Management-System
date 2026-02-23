@@ -1,0 +1,4 @@
+Starting history generation at 2026-02-23 23:02:29.807693
+CMD: git init
+STDOUT: Reinitialized existing Git repository in C:/Users/DevaSri/vehicle-management/.git/
+
