@@ -12,10 +12,11 @@ def run_cmd(cmd, env=None):
     except subprocess.CalledProcessError as e:
         with open("history_log.txt", "a") as log:
             log.write(f"ERROR: {cmd}\nSTDOUT: {e.stdout}\nSTDERR: {e.stderr}\n")
-        # Ignore known safe errors
         if "remote origin already exists" in e.stderr:
             return e.stdout
         if "There is no merge to abort" in e.stderr:
+            return e.stdout
+        if "a branch named" in e.stderr and "already exists" in e.stderr:
             return e.stdout
         raise
 
@@ -37,7 +38,6 @@ ignore_patterns = ["node_modules", ".git", "venv", ".gemini", "__pycache__", "di
 for root, dirs, files in os.walk(root_dir):
     dirs[:] = [d for d in dirs if not any(x in d for x in ignore_patterns)]
     for file in files:
-        # Check against patterns
         if any(x in file for x in ignore_patterns) or file in ["file_list.txt", "generate_history.py", "history_log.txt"]:
             continue
             
@@ -48,15 +48,14 @@ for root, dirs, files in os.walk(root_dir):
 # Generate commits
 planned_commits = []
 for f in file_list:
-    num = random.randint(3, 5) # Increased to ensure > 130
+    num = random.randint(3, 5)
     for _ in range(num):
         random_day = random.randint(0, date_range - 1)
         commit_date = start_date + timedelta(days=random_day)
         commit_date = commit_date.replace(hour=random.randint(9, 21), minute=random.randint(0, 59), second=random.randint(0, 59))
         planned_commits.append((commit_date, f))
 
-# Ensure count
-while len(planned_commits) < 140:
+while len(planned_commits) < 145:
     f = random.choice(file_list)
     random_day = random.randint(0, date_range - 1)
     commit_date = start_date + timedelta(days=random_day)
@@ -73,8 +72,14 @@ run_cmd("git add .")
 try:
     run_cmd('git commit -m "temp_init"')
 except:
-    pass # might already be committed
+    pass
 
+# Delete branch if exists before creating orphan
+try:
+    run_cmd("git branch -D main_history")
+except:
+    pass
+    
 run_cmd("git checkout --orphan main_history")
 run_cmd("git reset")
 
@@ -91,8 +96,8 @@ for i, (date, filename) in enumerate(planned_commits):
     env["GIT_COMMITTER_DATE"] = date_str
     
     safe_filename = filename.replace("\\", "/")
-    # Use -f to bypass any remaining gitignore issues if necessary, but we've filtered well
-    run_cmd(f'git add "{safe_filename}"')
+    # Add with -f just in case, though we filtered
+    run_cmd(f'git add -f "{safe_filename}"')
     run_cmd(f'git commit --allow-empty --date="{date_str}" -m "{safe_filename}"', env=env)
 
 # Finish
