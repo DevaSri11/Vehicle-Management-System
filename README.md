@@ -79,18 +79,3 @@ For a deep dive into the technical details, see [PROJECT_OVERVIEW.md](./PROJECT_
 ├── uploads/             # Temporary storage for ANPR images
 └── PROJECT_OVERVIEW.md  # Detailed system architecture
 ```
-
----
-
-## Commit History
-This project followed a professional, logical commit workflow. You can view the full development log in [COMMIT_LOG.md](./COMMIT_LOG.md).
-
----
-
-## Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
-
----
-
-## 📝 License
-This project is open-source and available under the MIT License.
