@@ -1,4 +1,4 @@
-# 🚗 Smart Vehicle Management System with ANPR
+# Smart Vehicle Management System with ANPR
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
@@ -10,18 +10,18 @@ A high-performance **Automatic Number Plate Recognition (ANPR)** system built to
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
-- 📸 **AI-Powered ANPR**: Automatic number plate extraction from uploaded images using YOLOv8 and EasyOCR.
-- 📋 **Live Management Dashboard**: Real-time vehicle logging, search, and exit management.
-- 📊 **Smart Analytics**: Interactive data visualization of parking trends, occupancy, and peak hours.
-- 💰 **Automated Billing**: Dynamic parking charge calculation (₹30/hr) based on stay duration.
-- 🔐 **Admin Security**: Secure authentication for system administrators.
-- 📂 **Export Capability**: Export logs to CSV for record-keeping and auditing.
+-  **AI-Powered ANPR**: Automatic number plate extraction from uploaded images using YOLOv8 and EasyOCR.
+-  **Live Management Dashboard**: Real-time vehicle logging, search, and exit management.
+-  **Smart Analytics**: Interactive data visualization of parking trends, occupancy, and peak hours.
+-  **Automated Billing**: Dynamic parking charge calculation (₹30/hr) based on stay duration.
+-  **Admin Security**: Secure authentication for system administrators.
+-  **Export Capability**: Export logs to CSV for record-keeping and auditing.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Backend**: Python, Flask, Flask-CORS
 - **Frontend**: Jinja2 (Management UI), React + Vite (Analytics Dashboard)
@@ -31,7 +31,7 @@ A high-performance **Automatic Number Plate Recognition (ANPR)** system built to
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Prerequisites
 - Python 3.10+
@@ -56,7 +56,7 @@ npm run dev
 
 ---
 
-## 🔄 Project Flow & Architecture
+## Project Flow & Architecture
 
 The system uses a **Hybrid Architecture**:
 1. **Core CRUD**: Flask handles the direct management interface via Jinja2 templates.
@@ -67,7 +67,7 @@ For a deep dive into the technical details, see [PROJECT_OVERVIEW.md](./PROJECT_
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 ├── analytics/           # React + Vite Analytics Dashboard
@@ -82,12 +82,12 @@ For a deep dive into the technical details, see [PROJECT_OVERVIEW.md](./PROJECT_
 
 ---
 
-## 📄 Commit History
+## Commit History
 This project followed a professional, logical commit workflow. You can view the full development log in [COMMIT_LOG.md](./COMMIT_LOG.md).
 
 ---
 
-## 🤝 Contributing
+## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
